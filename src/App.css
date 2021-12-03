@@ -1,38 +1,160 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+body {
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: #C4E2FF ;
+  border-bottom: 1px solid black;
+  position: sticky;
+  z-index: 100;
+  top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar_container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
+}
+
+.navbar_image img {
+  height: 25px;
+}
+
+.navbar_links {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.navbar_links li {
+  margin-right: 30px;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar_links Button {
+  background-color: rgb(17, 17, 17);
   color: white;
+  border-radius: 25px;
+  font-size: 14px;
+  padding: 5px 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar_links Button:hover {
+  background-color: rgb(17, 17, 17);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.hero_container{
+  height: 400px;
+  background-color: #C4E2FF ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+
+.hero_container .hero_wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero_container .hero_left{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero_container .hero_left .hero_title{
+  margin:0px 10px 25px 10px;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.hero_container .hero_left .hero_subtitle{
+  margin:0px 10px 15px 10px;
+}
+
+.hero_container .hero_left Button {
+  background-color: whitesmoke;
+  color: rgb(17, 17, 17);
+  border-radius: 25px;
+  font-size: 14px;
+  padding: 10px 15px;
+  border: 1px solid rgb(17, 17, 17) ;
+}
+
+
+.hero_container .hero_right img{
+  height: 400px;
+} 
+
+form{
+border-bottom: 1px solid rgb(201, 201, 201);
+margin-bottom: 100px;
+}
+
+.forms{
+  margin: 25px 10px;
+}
+
+.blog_title{
+  margin-top:40px;
+}
+
+.forms span{
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.forms input{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  height: 35px;
+  outline: none;
+  border: none;
+  padding: 10px;
+
+}
+
+.blog_paragraph textarea{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+
+  outline: none;
+  border: none;
+  padding: 10px;
+  resize: none;
+  height: 250px;
+}
+
+
+.button_wrapper Button{
+  background-color: rgb(17, 17, 17);
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  width:300px;
+  height:40px;
+  margin-bottom: 50px;
+  margin-right: 10px;
+  transform: translateX(10px);
+}
+
+
+
+.button_wrapper Button:hover {
+  background-color: rgb(17, 17, 17);
 }
