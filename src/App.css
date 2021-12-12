@@ -5,8 +5,8 @@
   box-sizing: border-box;
   font-family: "Montserrat Alternates", sans-serif;
 }
-body {
-}
+/* body {
+} */
 
 .navbar {
   background-color: #C4E2FF ;
@@ -102,12 +102,13 @@ body {
 } 
 
 form{
-border-bottom: 1px solid rgb(201, 201, 201);
+
 margin-bottom: 100px;
 }
 
 .forms{
   margin: 25px 10px;
+  
 }
 
 .blog_title{
@@ -120,7 +121,7 @@ margin-bottom: 100px;
 }
 
 .forms input{
-  background-color: rgb(245, 245, 245);
+  
   width: 100%;
   height: 35px;
   outline: none;
@@ -128,16 +129,33 @@ margin-bottom: 100px;
   padding: 10px;
 
 }
+.forms .post_input_title{
+  
+  font-size: 42px;
+  height: auto;
+  border-left: 0.5px solid rgb(184, 182, 182);
+  font-weight: 600;
+  color: rgb(31, 31, 31);
+}
+.forms .post_input_description{
+  font-weight: 500;
+  font-size: 30px;
+  height: auto;
+  border-left: 0.5px solid rgb(184, 182, 182);
+}
+
 
 .blog_paragraph textarea{
-  background-color: rgb(245, 245, 245);
+  
   width: 100%;
-
+  
+  font-size: 21px;
   outline: none;
   border: none;
   padding: 10px;
   resize: none;
-  height: 250px;
+  height: 100vh;
+  line-height: 45px;
 }
 
 
@@ -153,8 +171,31 @@ margin-bottom: 100px;
   transform: translateX(10px);
 }
 
-
-
 .button_wrapper Button:hover {
   background-color: rgb(17, 17, 17);
 }
+
+
+.navbar_postwriting{
+  position: sticky;
+  top:0;
+  background-color: white;
+}
+.wrapper_post_nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.nav_post_right Button{
+  background-color: #1a8917;
+  color: white;
+  padding:5px 15px;
+  border-radius: 25px;
+}
+.nav_post_right Button:hover{
+  background-color: #126610;
+  color: white;
+}
+
