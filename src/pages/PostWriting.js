@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Container, Button } from "@material-ui/core";
-
+import Footer from "../components/Footer";
 const PostWriting = () => {
   const [forminput, setFormInput] = new useState({
     title: "",
@@ -83,6 +83,8 @@ const PostWriting = () => {
           </div> */}
         </Container>
       </form>
+
+      <Footer></Footer>
     </div>
   );
 };
