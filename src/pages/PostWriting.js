@@ -13,6 +13,14 @@ const PostWriting = () => {
     setFormInput({ ...forminput, [event.target.name]: event.target.value });
   };
 
+  const [image, setImage] = useState(null);
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
   return (
     <div>
       <div className="navbar_postwriting">
@@ -25,6 +33,18 @@ const PostWriting = () => {
               />
             </div>
             <div className="nav_post_right">
+              <div className="image">
+                <input
+                  type="file"
+                  id="file"
+                  onChange={onImageChange}
+                  accept="image/*"
+                  className="filetype"
+                />
+                <label for="file">+</label>
+
+                
+              </div>
               <Button>Submit</Button>
             </div>
           </div>
@@ -58,6 +78,7 @@ const PostWriting = () => {
               onChange={inputHnadler}
             />
           </div>
+          <img src={image} className="posting_image" />
           <div className="blog_paragraph forms">
             {/* <span>Paragraph</span> */}
             <textarea
@@ -90,3 +111,18 @@ const PostWriting = () => {
 };
 
 export default PostWriting;
+
+{
+  /* <div className="image">
+      <input
+        type="file"
+        id="file"
+        onChange={onImageChange}
+        accept="image/*"
+        className="filetype"
+      />
+      <label for="file">+</label>
+
+      <img src={image} alt="preview image" />
+    </div> */
+}

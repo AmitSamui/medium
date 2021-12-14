@@ -188,6 +188,12 @@
   height: 60px;
 }
 
+.nav_post_right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav_post_right Button {
   background-color: #1a8917;
   color: white;
@@ -198,6 +204,39 @@
   background-color: #126610;
   color: white;
 }
+
+.image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin-top:50px; */
+  margin-right: 25px;
+}
+
+.posting_image {
+  height: 350px;
+  margin: 50px 0 50px 10px;
+}
+
+
+
+.image input[type="file"] {
+ display: none;
+}
+.image label{
+  border: 1.5px solid rgb(34, 34, 34);
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  padding-top: 3px;
+  
+  border-radius:50%;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
 
 /* blog styling */
 
