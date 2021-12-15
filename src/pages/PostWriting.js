@@ -68,10 +68,12 @@ const PostWriting = () => {
         <Container>
           <div className="wrapper_post_nav">
             <div className="navbar_image">
+            <a href="/">
               <img
                 src="https://cdn.freelogovectors.net/wp-content/uploads/2020/10/medium-logo.png"
                 alt="medium"
               />
+              </a>
             </div>
             <div className="nav_post_right">
               {/* <div className="image">
@@ -121,7 +123,8 @@ const PostWriting = () => {
               value={forminput.imgurl}
               onChange={inputHnadler}
               name="imgurl"
-              placeholder="img url ..."
+              className="post_input_image"
+              placeholder="img url"
             />
           </div> 
           <img src={forminput.imgurl} className="posting_image" />
