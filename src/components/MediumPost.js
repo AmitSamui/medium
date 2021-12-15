@@ -1,18 +1,18 @@
 import React from "react";
 import { Container, Button } from "@material-ui/core";
 
-const MediumPost = () => {
+const MediumPost = ({data}) => {
   return (
     <div>
       <div className="blog_wrapper">
         <div className="blog_main_right">
-          <div className="blog_main_name">Aishwarya Agrawal</div>
+          <div className="blog_main_name">Amit Samui</div>
           <div className="blog_main_title">
-            All you need is 15 minutes of strategic internet browsing.
+            {data.title}
+            
           </div>
           <div className="blog_main_description">
-            Using a Timer and a Notion sheet changed the way I consume
-            information.
+            {data.description}
           </div>
           <div className="blog_main_timestamps">
             <span className="date">Sep 18</span>
@@ -21,10 +21,10 @@ const MediumPost = () => {
         </div>
         <div className="blog_main_left">
           <img
-            src="./images/dashboard-dark.png"
+            src={data.imgurl}
             alt="bitch not showing"
             className="blog_main_img"
-            srcset=""
+           
           />
         </div>
       </div>

@@ -2,23 +2,64 @@ import React from "react";
 import { useState } from "react";
 import { Container, Button } from "@material-ui/core";
 import Footer from "../components/Footer";
+
+import db from "../Firebase";
+import { collection, addDoc } from "firebase/firestore";
+
 const PostWriting = () => {
+  // this is the orm input
   const [forminput, setFormInput] = new useState({
     title: "",
+    description: "",
     paragraph: "",
-    imgurl: "",
+    imgurl: ""
   });
 
+  // const [image, setImage] = useState("");
+
+  // this is the dynamic image uploading code
   const inputHnadler = (event) => {
     setFormInput({ ...forminput, [event.target.name]: event.target.value });
+    // setImage(event.target.imageurl)
   };
 
-  const [image, setImage] = useState(null);
+  
 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
+
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     setImage(URL.createObjectURL(event.target.files[0]));
+  //   }
+  // };
+
+  async function writeUserData(title, description, paragraph , imageurl) {
+    try {
+      // console.log(imageurl);
+      const docRef = await addDoc(collection(db, "posts"), {
+        title: title,
+        description: description,
+        paragraph: paragraph,
+        imgurl: `${imageurl}`
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    writeUserData(forminput.title, forminput.description, forminput.paragraph , forminput.imgurl);
+
+    setFormInput({
+      ...forminput,
+      title: "",
+      description: "",
+      paragraph: "",
+      imgurl: "",
+    });
+    // setImage(null);
   };
 
   return (
@@ -33,7 +74,7 @@ const PostWriting = () => {
               />
             </div>
             <div className="nav_post_right">
-              <div className="image">
+              {/* <div className="image">
                 <input
                   type="file"
                   id="file"
@@ -42,10 +83,8 @@ const PostWriting = () => {
                   className="filetype"
                 />
                 <label for="file">+</label>
-
-                
-              </div>
-              <Button>Submit</Button>
+              </div> */}
+              <Button onClick={handleSubmit}>Submit</Button>
             </div>
           </div>
         </Container>
@@ -54,8 +93,6 @@ const PostWriting = () => {
       <form>
         <Container>
           <div className="blog_title forms">
-            {/* <span>Title</span> */}
-
             <input
               type="text"
               name="title"
@@ -67,8 +104,6 @@ const PostWriting = () => {
           </div>
 
           <div className="blog_description forms">
-            {/* <span>Description</span> */}
-
             <input
               type="text"
               name="description"
@@ -78,9 +113,20 @@ const PostWriting = () => {
               onChange={inputHnadler}
             />
           </div>
-          <img src={image} className="posting_image" />
+
+          <div className="blog_img forms">
+            
+            <input
+              type="text"
+              value={forminput.imgurl}
+              onChange={inputHnadler}
+              name="imgurl"
+              placeholder="img url ..."
+            />
+          </div> 
+          <img src={forminput.imgurl} className="posting_image" />
+
           <div className="blog_paragraph forms">
-            {/* <span>Paragraph</span> */}
             <textarea
               type="text"
               name="paragraph"
@@ -89,19 +135,10 @@ const PostWriting = () => {
               onChange={inputHnadler}
             />
           </div>
-          {/* <div className="blog_img forms">
-            <span>Image url</span>
-            <input
-              type="text"
-              value={forminput.imgurl}
-              onChange={inputHnadler}
-              name="imgurl"
-              placeholder="img url ..."
-            />
-          </div> */}
-          {/* <div className="button_wrapper">
+          
+           {/* <div className="button_wrapper">
             <Button>Submit</Button>
-          </div> */}
+          </div>  */}
         </Container>
       </form>
 
@@ -111,18 +148,3 @@ const PostWriting = () => {
 };
 
 export default PostWriting;
-
-{
-  /* <div className="image">
-      <input
-        type="file"
-        id="file"
-        onChange={onImageChange}
-        accept="image/*"
-        className="filetype"
-      />
-      <label for="file">+</label>
-
-      <img src={image} alt="preview image" />
-    </div> */
-}

@@ -20,7 +20,7 @@ const Hero = () => {
             <img
               src="./images/heroimage.svg"
               alt="bitch not showing"
-              srcset=""
+              
             />
           </div>
         </div>
