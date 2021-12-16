@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-const MediumPost = ({ data }) => {
+const MediumPost = ({id, data }) => {
   return (
-    <div>
+    <Link to={`/post/${id}`} style={{textDecoration:"none"}}>
+      <div>
       <div className="blog_wrapper">
         <div className="blog_main_right">
           <div className="blog_main_name">Amit Samui</div>
@@ -23,6 +25,7 @@ const MediumPost = ({ data }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

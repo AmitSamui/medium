@@ -391,15 +391,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 100%;
-  background-color: #242424;
-  height: 50px;
+  background-color: rgb(219, 219, 219);
+  height: 17vh;
   margin-top: 100px;
+  padding: 3vh 0;
+}
+.footers a {
+  text-decoration: none;
+  flex-direction: column;
+  display: flex;
+
+  justify-content: center;
+  align-items: center
+}
+.footers a img{
+  height: 4vh;
+  margin-bottom: 3vh;
 }
 .footers p{
+  font-family: Montserrat, sans-serif;
   text-align: center;
-  font-size: 13px;
-  color: aliceblue;
+  font-size: 14px;
+  color: rgb(32, 32, 32);
 }
 
 
@@ -523,6 +538,116 @@ a {
 }
 .cta:active {
   transform: scale(0.96);
+}
+
+/* individual blog page styling */
+
+.indivi_blog_container {
+  display: grid;
+  grid-template-columns: 4rem 3fr 1fr 2rem;
+  margin-top: 5rem;
+  grid-column-gap: 2rem;
+}
+
+.indivi_blog_header {
+  grid-column: 2 / 5;
+}
+
+.indivi_blog_heading {
+  font-family: Montserrat, sans-serif;
+  /* font-family: "Open Sans"; */
+  font-size: 4vw;
+  margin-bottom: 0;
+}
+
+.indivi_blog_header .indivi_blog_subheading {
+  
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  color: #455A64;
+  margin-bottom: 1.3vw;
+}
+
+
+.indivi_blog_profilename {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog_user {
+    /* display: flex; */
+    justify-content: space-between;
+    padding-bottom: 2.0vw;
+    font-size: 1.05vw;
+}
+
+
+
+
+.indivi_blog_content {
+  font-family: Montserrat, sans-serif;
+  grid-column: 2 / 3;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.indivi_blog_content p{
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.indivi_blog_content .indivi_blog_img {
+  width: 100%;
+  object-fit: cover;
+  padding-bottom: 1.6vw;
+}
+
+.indivi_blog_aside .heading {
+  margin: 0;
+  font-weight: 600;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .indivi_blog_container {
+    grid-template-columns: 2rem 3fr 1fr 2rem;
+  }
+  .indivi_blog_content {
+    grid-column: 2 / 4;
+  }
+  .indivi_blog_aside {
+    grid-column: 2 / 4;
+  }
+}
+
+.card {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.card img {
+  height: 100%;
+  width: 40%;
+  margin-right: 0.5rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card .title {
+  font-size: 0.8rem;
+}
+
+.card .author {
+  font-size: small;
 }
 
 

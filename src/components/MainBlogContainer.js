@@ -40,7 +40,7 @@ const MainBlogContainer = () => {
      {posts.length &&
       posts.map(post => 
       
-  <MediumPost key={post.id} data={post.data()} ></MediumPost>
+  <MediumPost key={post.id} id={post.id} data={post.data()} ></MediumPost>
       
       )
     }
