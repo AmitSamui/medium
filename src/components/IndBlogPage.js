@@ -1,43 +1,67 @@
-import { Container } from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
 import React from "react";
-import { useEffect , useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Footer from "./Footer";
 import db from "../Firebase";
 import Navbar from "./navbar";
 
-
 const IndBlogPage = () => {
-
-  const [postData, setpostData] = useState({})
+  const [postData, setpostData] = useState({});
+  const [appreaciations, setAppreciations] = useState(0);
+  const [dislike, setdislikes] = useState(0);
+  const [disableclap, setdisableclap] = useState(false);
+  const [disabledislike, setdisabledislike] = useState(false);
   const id = useParams();
   console.log(id.id);
 
-  const  getblog = async () => {
+  const getblog = async () => {
     const docRef = doc(db, "posts", `${id.id}`);
     const docSnap = await getDoc(docRef);
-  
+
     // console.log(docSnap);
     if (docSnap.exists()) {
       // console.log("Document data:", docSnap.data());
-      setpostData(docSnap.data())
+      setpostData(docSnap.data());
+      setAppreciations(postData.clap);
+      setdislikes(postData.dislike);
       // console.log("post data" ,postData.title);
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
     }
-  }
+  };
+
+  const updateClap = async () => {
+    setAppreciations(postData.clap + 1);
+
+    setdisableclap(true);
+    setdisabledislike(false);
+
+    const docRef = doc(db, "posts", `${id.id}`);
+    await updateDoc(docRef, {
+      clap: postData.clap + 1,
+    });
+  };
+  const updateDislike = async () => {
+    setdislikes(postData.dislike + 1);
+    setdisableclap(false);
+    setdisabledislike(true);
+
+    const docRef = doc(db, "posts", `${id.id}`);
+    await updateDoc(docRef, {
+      dislike: postData.dislike + 1,
+    });
+  };
 
   useEffect(() => {
     getblog();
-  }, [id.id])
-
- 
+  }, [id.id]);
 
   return (
     <div>
-   <Navbar color="whitesmoke"></Navbar>
+      <Navbar color="whitesmoke"></Navbar>
       <Container>
         <main class="indivi_blog_container">
           <header class="indivi_blog_header">
@@ -46,7 +70,7 @@ const IndBlogPage = () => {
             <div class="indivi_blog_profilename">
               <div class="blog_user">
                 <p class="blog_username">Amit Samui</p>
-                <p class="blog_date">18th Dec. 2 min read</p>
+                <p class="blog_date">17th Dec. 6 min read</p>
               </div>
               {/* <!-- <div class="blog_username_socials"> -->
                 <!-- <img class="blog_username_socials_img" src="https://image.flaticon.com/icons/png/512/1216/1216882.png" alt="p"> -->
@@ -65,9 +89,31 @@ const IndBlogPage = () => {
               src={postData.imgurl}
               alt="large-image"
             />
-            <p>
-              {postData.paragraph}
-            </p>
+            <p>{postData.paragraph}</p>
+            <div className="work">
+              <div className="appreciated">
+                <Button
+                  className="clap"
+                  disabled={disableclap}
+                  onClick={updateClap}
+                >
+                  <img src="../images/claps.svg" />
+                  like
+                </Button>
+                <div className="appreciate">{appreaciations}</div>
+              </div>
+              <div className="not_appreciated">
+                <Button
+                  className="dislike"
+                  disabled={disabledislike}
+                  onClick={updateDislike}
+                >
+                  <img src="../images/claps.svg" />
+                  dislike
+                </Button>
+                <div className="unappriciate">{dislike}</div>
+              </div>
+            </div>
           </section>
           <aside class="indivi_blog_aside">
             <h4 class="heading">Other Articles you might Enjoy</h4>
@@ -94,9 +140,7 @@ const IndBlogPage = () => {
           </aside>
         </main>
       </Container>
-      <Footer>
-
-      </Footer>
+      <Footer></Footer>
     </div>
   );
 };

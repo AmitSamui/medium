@@ -39,7 +39,9 @@ const PostWriting = () => {
         title: title,
         description: description,
         paragraph: paragraph,
-        imgurl: `${imageurl}`
+        imgurl: `${imageurl}`,
+        clap: 0,
+        dislike: 0
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -58,6 +60,7 @@ const PostWriting = () => {
       description: "",
       paragraph: "",
       imgurl: "",
+
     });
     // setImage(null);
   };
@@ -124,7 +127,7 @@ const PostWriting = () => {
               onChange={inputHnadler}
               name="imgurl"
               className="post_input_image"
-              placeholder="img url"
+              placeholder="Image link"
             />
           </div> 
           <img src={forminput.imgurl} className="posting_image" />

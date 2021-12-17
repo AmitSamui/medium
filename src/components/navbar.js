@@ -24,9 +24,9 @@ const Navbar = (props) => {
             <li>
               <a href="/write">Write</a>
             </li>
-            <li>
+            {/* <li>
               <a>Sign In</a>
-            </li>
+            </li> */}
             <Button><a href="/postwriting">Get Started</a></Button>
           </div>
         </div>

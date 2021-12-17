@@ -12,7 +12,7 @@ const MediumPost = ({id, data }) => {
           <div className="blog_main_title">{data.title}</div>
           <div className="blog_main_description">{data.description}</div>
           <div className="blog_main_timestamps">
-            <span className="date">Sep 18</span>
+            <span className="date">Dec 17</span>
             <span className="time">4 min read</span>
           </div>
         </div>

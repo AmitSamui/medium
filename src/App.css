@@ -609,6 +609,64 @@ a {
   font-weight: 600;
 }
 
+.work{
+  margin-top: 30px;
+  border-top: 1px solid rgb(184, 184, 184);
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appreciated {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.appreciated button{
+  margin-right: 10px;
+  
+}
+
+.appreciated .appreciate{
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #525252;
+}
+
+.not_appreciated {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.not_appreciated button{
+  margin-right: 10px;
+  
+}
+
+.not_appreciated .unappriciate{
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #525252;
+}
+
+.clap img{
+  height: 25px;
+  margin-right: 5px;
+}
+
+
+
+.dislike img{
+  height: 25px;
+  transform: rotateZ(180deg);
+  margin-right: 5px;
+}
+
 
 
 @media only screen and (max-width: 600px) {
