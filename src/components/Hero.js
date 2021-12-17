@@ -14,13 +14,13 @@ const Hero = () => {
               It's easy and free to post your thinking on any topic and connect
               with millions of readers.
             </div>
-            <Button>Start Writing</Button>
+            <Button><a href="/postwriting">Start Writing</a></Button>
           </div>
           <div className="hero_right">
             <img
               src="./images/heroimage.svg"
               alt="bitch not showing"
-              srcset=""
+              
             />
           </div>
         </div>
